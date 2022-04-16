@@ -2,8 +2,19 @@
 require('dotenv').config()
 
 const http = require('http')
+const fs = require('fs')
 
 const port = process.env.PORT
+
+const content = 'some content!'
+
+fs.writeFile('./users/aaron/test.txt', content, err => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  //file written successfully
+})
 
 
 const server = http.createServer((req, res) => {
