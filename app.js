@@ -6,7 +6,7 @@ const fs = require('fs')
 
 const port = process.env.PORT
 
-const content = 'some content!'
+const content = 'Some changed content.'
 
 fs.writeFile('./users/aaron/test.txt', content, err => {
   if (err) {
@@ -14,6 +14,14 @@ fs.writeFile('./users/aaron/test.txt', content, err => {
     return
   }
   //file written successfully
+})
+
+fs.readFile('./users/aaron/test.txt', 'utf8', (err, data) => {
+  if (err) {
+    console.error(err)
+    return
+  }
+  console.log(data)
 })
 
 
